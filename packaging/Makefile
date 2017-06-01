@@ -3,6 +3,7 @@ all:
 build: deb-jessie deb-stretch
 
 deb-%:
+	mkdir -p ../dist/
 	CODENAME=$* docker-compose run --rm debian
 	$(MAKE) changes-$*
 
