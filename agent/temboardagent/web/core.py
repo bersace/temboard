@@ -13,9 +13,9 @@ def get_error(error_code):
     if error_code < 400:
         raise HTTPResponse("HTTPResponse raised", error_code)
     elif error_code < 500:
-        raise HTTPError(error_code, "HTTPError raised")
+        raise HTTPError(error_code, f"HTTPError raised {error_code}")
     else:
-        raise Exception("This is an Exception %s" % error_code)
+        raise Exception(f"This is an Exception {error_code}")
 
 
 @get("/discover", skip=["signature"])
