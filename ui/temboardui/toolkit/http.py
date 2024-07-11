@@ -4,7 +4,6 @@ import logging
 import ssl
 from datetime import datetime, timezone
 from time import time
-from urllib.error import HTTPError
 
 from .errors import TemboardError
 from .utils import ensure_bytes
@@ -149,10 +148,8 @@ class TemboardResponse(http.client.HTTPResponse):
         )
 
     def raise_for_status(self):
-        if self.status >= 400:
+        if self.status >= 300:
             raise TemboardHTTPError(self)
-        elif self.status >= 300:
-            raise HTTPError(self.status, self.reason)
 
     def json(self):
         return json.loads(self.read().decode("utf-8"))
