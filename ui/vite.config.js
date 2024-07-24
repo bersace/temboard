@@ -45,6 +45,7 @@ export default defineConfig({
         "settings.user": "/settings.users.js",
         activity: "/activity.js",
         dashboard: "/dashboard.js",
+        explain: "/explain.js",
         home: "/home.js",
         maintenance: "/maintenance.js",
         monitoring: "/monitoring.js",
